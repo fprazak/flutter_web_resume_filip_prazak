@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OwnTextWidget2 extends StatelessWidget {
+class TextWidget2 extends StatelessWidget {
   final String text;
 
-  OwnTextWidget2(this.text);
+  TextWidget2(this.text);
 
   @override
   Widget build(BuildContext context) {

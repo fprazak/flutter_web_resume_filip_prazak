@@ -2,8 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:web_resume_filip_prazak/mobile_layout.dart';
 
-import 'my_desktop_layout.dart';
+import 'desktop_layout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,30 +20,28 @@ class Resume extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: MyHomePage(title: 'Web resumé Filip Pražák'),
+      home: HomePage(title: 'Web resumé Filip Pražák'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class HomePage extends StatelessWidget {
+  HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MyDesktopLayout(),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth > 850) {
+            return DesktopLayout();
+          } else {
+            return MobileLayout();
+          }
+        },
+      ),
     );
   }
 }
