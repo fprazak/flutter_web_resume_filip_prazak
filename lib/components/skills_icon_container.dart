@@ -13,9 +13,8 @@ class SkillsIconContainer extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(100), border: Border.all(width: 2, color: Colors.grey)),
-      child:
-          IconButton(iconSize: 30, color: const Color.fromRGBO(205, 55, 0, 1), onPressed: null, icon: Image.asset
-            (imagePath)),
+      child: IconButton(
+          iconSize: 30, color: const Color.fromRGBO(205, 55, 0, 1), onPressed: null, icon: Image.asset(imagePath)),
     );
   }
 }

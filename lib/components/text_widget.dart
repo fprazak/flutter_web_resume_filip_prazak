@@ -8,13 +8,14 @@ class TextWidget extends StatelessWidget {
   final String company;
   final String positionDescription;
 
-  TextWidget(this.position, this.timeline, this.company, this.positionDescription);
+  const TextWidget(this.position, this.timeline, this.company, this.positionDescription, {Key? key}) : super(key: key);
 
   Widget ownTextTemplate(String text, TextStyle headline, Color color) {
-    if (text.length != 0) {
+    if (text.isNotEmpty) {
       return Text(text, style: GoogleFonts.lato(fontWeight: FontWeight.bold, textStyle: headline, color: color));
-    } else
-      return SizedBox.shrink();
+    } else {
+      return const SizedBox.shrink();
+    }
   }
 
   @override
@@ -28,19 +29,20 @@ class TextWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        SpacerHeight(30),
+        const SpacerHeight(30),
+        // if (mediaQueryWidth > 1000)
         Wrap(
-          direction: Axis.vertical,
+          spacing: mediaQueryWidth * 0.7,
           children: [
-            ownTextTemplate(position, headline5, Color.fromRGBO(52, 58, 64, 1)),
-            ownTextTemplate(timeline, subtitle2, Color.fromRGBO(205, 55, 0, 1)),
+            ownTextTemplate(position, headline5, const Color.fromRGBO(52, 58, 64, 1)),
+            ownTextTemplate(timeline, subtitle2, const Color.fromRGBO(205, 55, 0, 1)),
           ],
         ),
-        SpacerHeight(15),
-        ownTextTemplate(company, headline6, Color.fromRGBO(108, 117, 125, 1)),
-        SpacerHeight(15),
-        ownTextTemplate(positionDescription, subtitle1, Color.fromRGBO(130, 126, 130, 1)),
-        SpacerHeight(5),
+        const SpacerHeight(15),
+        ownTextTemplate(company, headline6, const Color.fromRGBO(108, 117, 125, 1)),
+        const SpacerHeight(15),
+        ownTextTemplate(positionDescription, subtitle1, const Color.fromRGBO(130, 126, 130, 1)),
+        const SpacerHeight(5),
       ],
     );
   }

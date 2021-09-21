@@ -9,10 +9,12 @@ import 'screens/desktop_layout.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(Resume());
+  runApp(const Resume());
 }
 
 class Resume extends StatelessWidget {
+  const Resume({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,13 +22,13 @@ class Resume extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: HomePage(title: 'Web resumé Filip Pražák'),
+      home: const HomePage(title: 'Web resumé Filip Pražák'),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 

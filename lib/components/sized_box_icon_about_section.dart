@@ -6,33 +6,30 @@ class SizedBoxIconsAbout extends StatelessWidget {
   final String assetUrl;
   final String launchUrl;
 
-  SizedBoxIconsAbout(this.assetUrl, this.launchUrl);
+  const SizedBoxIconsAbout(this.assetUrl, this.launchUrl, {Key? key}) : super(key: key);
 
   Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
-      );
-    } else {
-      throw 'Could not launch $url';
-    }
+    if (!await canLaunch(url)) return;
+
+    await launch(
+      url,
+      forceSafariVC: false,
+      forceWebView: false,
+    );
   }
 
+  @override
   Widget build(context) {
     return SizedBox(
-      height: 70,
-      width: 70,
+      height: 60,
+      width: 60,
       child: TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: Color.fromRGBO(52, 58, 64, 1),
-          shape: CircleBorder(),
+          backgroundColor: const Color.fromRGBO(52, 58, 64, 1),
+          shape: const CircleBorder(),
         ),
         child: IconButton(
             iconSize: 20,
-            color: Color.fromRGBO(205, 55, 0, 1),
             onPressed: () {
               _launchInBrowser(launchUrl);
             },

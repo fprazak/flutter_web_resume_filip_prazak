@@ -6,12 +6,12 @@ class FlexibleWithContainer extends StatelessWidget {
   final double mediaQueryWidth;
   final SectionWidget sectionWidget;
 
-  FlexibleWithContainer(this.anchor, this.mediaQueryWidth, this.sectionWidget);
+  const FlexibleWithContainer(this.anchor, this.mediaQueryWidth, this.sectionWidget, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Flexible(
         key: anchor,
-        child: Container(
+        child: SizedBox(
           width: mediaQueryWidth * 0.8,
           child: sectionWidget,
         ));
