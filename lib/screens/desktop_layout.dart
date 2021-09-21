@@ -7,10 +7,10 @@ import 'package:web_resume_filip_prazak/components/spacer_height.dart';
 import 'package:web_resume_filip_prazak/components/spacer_width.dart';
 import 'package:web_resume_filip_prazak/data/data.dart';
 
-import 'components/flexible_with_container.dart';
-import 'components/section_widget.dart';
-import 'components/sized_box_icon_about_section.dart';
-import 'components/text_widget2.dart';
+import '../components/flexible_with_container.dart';
+import '../components/section_widget.dart';
+import '../components/sized_box_icon_about_section.dart';
+import '../components/text_widget2.dart';
 
 class DesktopLayout extends StatelessWidget {
   final anchorAbout = GlobalKey();
@@ -19,11 +19,13 @@ class DesktopLayout extends StatelessWidget {
   final anchorSkills = GlobalKey();
   final anchorInterests = GlobalKey();
 
+  // Moves to specific anchor on page.
   void scrollToAnchor(GlobalKey anchor) {
     WidgetsBinding.instance!.addPostFrameCallback(
         (_) => Scrollable.ensureVisible(anchor.currentContext!, duration: Duration(milliseconds: 1500)));
   }
 
+  // Opens the mail client with recipient
   Future<void> _launchMailClient() async {
     const mailUrl = 'mailto:filip@reinspiro.com';
     await launch(mailUrl);
@@ -36,6 +38,7 @@ class DesktopLayout extends StatelessWidget {
     final TextStyle headline5 = Theme.of(context).textTheme.headline5!;
     final TextStyle headline6 = Theme.of(context).textTheme.headline6!;
 
+    // Return specific size of sizedbox
     Widget sizedBoxForMenu(GlobalKey<State<StatefulWidget>> anchor, String text) {
       return SizedBox(
         height: mediaQueryHeight * 0.07,
@@ -133,8 +136,8 @@ class DesktopLayout extends StatelessWidget {
                                   SizedBoxIconsAbout('assets/images/appIcon.png', 'https://www.reinspiro.com/komunita'),
                                   SpacerWidth(10),
                                   SizedBox(
-                                    height: 60,
-                                    width: 60,
+                                    height: 70,
+                                    width: 70,
                                     child: TextButton(
                                       style: TextButton.styleFrom(
                                         backgroundColor: Color.fromRGBO(52, 58, 64, 1),

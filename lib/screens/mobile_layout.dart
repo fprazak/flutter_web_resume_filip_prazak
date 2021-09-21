@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'components/about_full_name.dart';
-import 'components/section_widget.dart';
-import 'components/sized_box_icon_about_section.dart';
-import 'components/spacer_height.dart';
-import 'components/spacer_width.dart';
-import 'components/text_widget2.dart';
-import 'data/data.dart';
+import '../components/about_full_name.dart';
+import '../components/section_widget.dart';
+import '../components/sized_box_icon_about_section.dart';
+import '../components/spacer_height.dart';
+import '../components/spacer_width.dart';
+import '../components/text_widget2.dart';
+import '../data/data.dart';
 
 class MobileLayout extends StatelessWidget {
   final anchorAbout = GlobalKey();
@@ -45,11 +45,7 @@ class MobileLayout extends StatelessWidget {
                 child: SizedBox(
                   key: anchorAbout,
                   child: Padding(
-                      padding: EdgeInsets.only(
-                          left: mediaQueryWidth * 0.02,
-                          right: mediaQueryWidth * 0.02,
-                          bottom: mediaQueryHeight * 0.1,
-                          top: mediaQueryHeight * 0.1),
+                      padding: EdgeInsets.all(mediaQueryWidth * 0.1),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,

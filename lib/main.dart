@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:web_resume_filip_prazak/mobile_layout.dart';
+import 'package:web_resume_filip_prazak/screens/mobile_layout.dart';
 
-import 'desktop_layout.dart';
+import 'screens/desktop_layout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

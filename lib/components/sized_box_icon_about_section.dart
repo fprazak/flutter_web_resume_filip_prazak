@@ -23,8 +23,8 @@ class SizedBoxIconsAbout extends StatelessWidget {
 
   Widget build(context) {
     return SizedBox(
-      height: 60,
-      width: 60,
+      height: 70,
+      width: 70,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: Color.fromRGBO(52, 58, 64, 1),
